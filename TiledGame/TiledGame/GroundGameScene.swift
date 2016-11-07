@@ -542,6 +542,8 @@ class GroundGameScene: SKScene, SKSceneDelegate, SKPhysicsContactDelegate {
             villagePlayer = try AVAudioPlayer(contentsOfURL: newURL)
             villagePlayer.volume = 0.5
             villagePlayer.prepareToPlay()
+            villagePlayer.numberOfLoops = -1 //infinite
+
             villagePlayer.play()
             
         } catch let error as NSError {
