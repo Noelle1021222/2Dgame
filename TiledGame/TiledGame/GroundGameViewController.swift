@@ -36,8 +36,8 @@ class GroundGameViewController: UIViewController {
         super.viewWillLayoutSubviews();
         
         let skView = self.view as! SKView
-        skView.showsFPS = true
-        skView.showsNodeCount = true
+        skView.showsFPS = false
+        skView.showsNodeCount = false
         
         skView.ignoresSiblingOrder = true
         
