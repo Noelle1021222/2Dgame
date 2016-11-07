@@ -17,8 +17,8 @@ iOS 9.0+<br />
 Xcode 7.3+<br />
 pod install
 ##ScreenShot##
-![](file://Users/noelle1021222/Desktop/pic/happy2.png)
-
+![happy1](https://cloud.githubusercontent.com/assets/21031424/20058127/59aa155c-a52a-11e6-97b7-941831d3e172.jpg)
+![happy2](https://cloud.githubusercontent.com/assets/21031424/20058131/5f0c60d6-a52a-11e6-82d6-1007d7775e37.png)
 
 
 
@@ -42,4 +42,5 @@ iOS 9.0+<br />
 Xcode 7.3+<br />
 pod install
 ##ScreenShot##
-
+![tile1](https://cloud.githubusercontent.com/assets/21031424/20058135/63f27388-a52a-11e6-8886-9505a952b041.png)
+![tile2](https://cloud.githubusercontent.com/assets/21031424/20058141/69cb19ea-a52a-11e6-93e2-dd414ae0bf66.jpg)
