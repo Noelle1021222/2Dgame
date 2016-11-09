@@ -113,10 +113,10 @@ class GroundGameScene: SKScene, SKSceneDelegate, SKPhysicsContactDelegate {
     let anothercameraNode:SKCameraNode = SKCameraNode()
     var onGround = Bool()
     
-    var reverse1 : CGFloat = 1
-    var reverse2 : CGFloat = 1
-    var reverse3 : CGFloat = 1
-    var reverse4 : CGFloat = 1
+    var reverse1 : CGFloat = 2
+    var reverse2 : CGFloat = 2
+    var reverse3 : CGFloat = 2
+    var reverse4 : CGFloat = 2
     
     var rectangle = SKNode()
     var groundScoreLbl = SKLabelNode() //生成score label
@@ -543,7 +543,6 @@ class GroundGameScene: SKScene, SKSceneDelegate, SKPhysicsContactDelegate {
             villagePlayer.volume = 0.5
             villagePlayer.prepareToPlay()
             villagePlayer.numberOfLoops = -1 //infinite
-
             villagePlayer.play()
             
         } catch let error as NSError {
