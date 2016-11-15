@@ -17,6 +17,7 @@ struct PhysicsCatagory{ //交互影響，重力影響
     static let Enemy2:UInt32 = 0x1 << 4
     static let Enemy3:UInt32 = 0x1 << 5
     static let Enemy4:UInt32 = 0x1 << 6
+    static let Everything:UInt32 = 0x1 << 7
 
     static let Finish:UInt32 = 0x1 << 10
     static let Pipe:UInt32 = 0x1 << 12
@@ -150,8 +151,9 @@ class GroundGameScene: SKScene, SKSceneDelegate, SKPhysicsContactDelegate {
         self.addChild(self.map)
         
         //handle collision
-                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+//        self.physicsBody = SKPhysicsBody(edgeLoopFromRect: CGRect(x: self.frame.origin.x, y: self.frame.origin.y, width: self.frame.size.width, height: self.frame.size.height))
         self.physicsBody?.friction = 0.0
+
         self.physicsWorld.contactDelegate = self
         //        self.physicsBody.collisionBitMask = 0
         //        self.physicsBody.contactTestBitMask = 0
@@ -170,7 +172,8 @@ class GroundGameScene: SKScene, SKSceneDelegate, SKPhysicsContactDelegate {
             let someObstacleSize = CGSize(width: Int(width)!, height: Int(height)!)
             print(someObstacleSize)
             let someObstacle = SKSpriteNode(color: UIColor.clearColor(), size: someObstacleSize)
-            
+//            let someObstacle = SKSpriteNode()
+
             let y = collisionObject.objectForKey("y") as! Int
             let x = collisionObject.objectForKey("x") as! Int
             
@@ -180,7 +183,9 @@ class GroundGameScene: SKScene, SKSceneDelegate, SKPhysicsContactDelegate {
             someObstacle.physicsBody?.collisionBitMask = 0
             someObstacle.physicsBody?.friction = 0.4
             someObstacle.physicsBody?.restitution = 0.0  //反彈
-            
+            someObstacle.physicsBody?.categoryBitMask = PhysicsCatagory.Everything
+
+            someObstacle.physicsBody?.contactTestBitMask = PhysicsCatagory.hero
             self.obstacles.addChild(someObstacle)
         }
         print(obstacles)
@@ -454,7 +459,7 @@ class GroundGameScene: SKScene, SKSceneDelegate, SKPhysicsContactDelegate {
             someCoin.physicsBody = SKPhysicsBody(rectangleOfSize: CoinSize)
             someCoin.physicsBody?.affectedByGravity = false
             someCoin.physicsBody?.collisionBitMask = 0
-            someCoin.physicsBody?.friction = 0.2  //光滑
+            someCoin.physicsBody?.friction = 0.1  //光滑
             someCoin.physicsBody?.restitution = 0.0
             //碰撞用
             someCoin.physicsBody?.categoryBitMask = PhysicsCatagory.Score
@@ -503,8 +508,16 @@ class GroundGameScene: SKScene, SKSceneDelegate, SKPhysicsContactDelegate {
     
     
     override func didMoveToView(view: SKView) {
-
+//        let borderBody = SKPhysicsBody(edgeLoopFromRect: self.frame)
+//        // 2
+//        borderBody.friction = 0
+//        // 3
+//        self.physicsBody = borderBody
         super.didMoveToView(view)
+        
+//        let range = SKRange(lowerLimit: CGRectGetMidY(view.frame), upperLimit: CGRectGetMaxY(view.frame))
+//        let constraint = SKConstraint.positionY(range)
+//        paddle.constraints = [constraint]
         myCamera = SKCameraNode()
         
         self.camera = myCamera  // Maybe you missed this?
@@ -851,13 +864,10 @@ class GroundGameScene: SKScene, SKSceneDelegate, SKPhysicsContactDelegate {
             children.position.x += reverse4
         }
         
-        print( self.hero.position.y)
-        print(self.frame.origin.y)
+        
 
         //掉到洞死亡
         if self.hero.position.y < self.frame.origin.y{
-            print( self.hero.position.y)
-            print(self.frame.origin.y)
             print("you lose")
             hero.hidden = true
             gameOver(false)

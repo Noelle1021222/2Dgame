@@ -30,7 +30,7 @@ import SpriteKit
 
 @available(iOS 9.0, *)
 class GroundGameViewController: UIViewController {
-//    
+    
     override func viewWillLayoutSubviews()
     {
         super.viewWillLayoutSubviews();
@@ -41,14 +41,12 @@ class GroundGameViewController: UIViewController {
         
         skView.ignoresSiblingOrder = true
         
-        let scene = GroundGameScene(size: self.view.bounds.size)
+        let scene = GroundGameScene(size: skView.bounds.size)
         scene.scaleMode = .AspectFill
         skView.presentScene(scene)
         
         
     }
-    
-
 
     
     override func viewDidLoad() {

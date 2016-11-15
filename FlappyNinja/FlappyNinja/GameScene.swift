@@ -343,7 +343,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     }
 
     override func didMoveToView(view: SKView) {
-        
+        self.physicsBody = SKPhysicsBody(edgeLoopFromRect: CGRect(x: self.frame.origin.x, y: self.frame.origin.y, width: self.frame.size.width, height: self.frame.size.height))
 //        let soundFilePath = NSBundle.mainBundle().pathForResource("gameBackground", ofType: "mp3")
 //        let soundFileURL = NSURL(fileURLWithPath: soundFilePath!)
 //        
