@@ -150,7 +150,7 @@ class GroundGameScene: SKScene, SKSceneDelegate, SKPhysicsContactDelegate {
         self.addChild(self.map)
         
         //handle collision
-        self.physicsBody = SKPhysicsBody(edgeLoopFromRect: CGRect(x: self.frame.origin.x, y: self.frame.origin.y, width: self.frame.size.width, height: self.frame.size.height))
+                                                                                                                                                                                                                                                                                                                                                                                                                                                     
         self.physicsBody?.friction = 0.0
         self.physicsWorld.contactDelegate = self
         //        self.physicsBody.collisionBitMask = 0
@@ -851,10 +851,13 @@ class GroundGameScene: SKScene, SKSceneDelegate, SKPhysicsContactDelegate {
             children.position.x += reverse4
         }
         
-        
+        print( self.hero.position.y)
+        print(self.frame.origin.y)
 
         //掉到洞死亡
         if self.hero.position.y < self.frame.origin.y{
+            print( self.hero.position.y)
+            print(self.frame.origin.y)
             print("you lose")
             hero.hidden = true
             gameOver(false)
