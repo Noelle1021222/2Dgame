@@ -1,18 +1,18 @@
-# FlappyNinja #
+# FlappyNinja #<br />
 This is like a Flappy Bird.I used to build this game to train my game skill.
 I add life bar and enemy,so if player bumped into the wall ,it won't be died quickly.
 
-##Feature##
+##Feature##<br />
 - It includes many basics for creating a 2d game, including physicsBody,and so on.
 - It has life bar to check player's live
 - infinite game
 
-## Libraries ##
+## Libraries ##<br />
 Sprite Kit<br />
 FBSDK<br />
 Firebase<br />
 
-##Requirement##
+##Requirement##<br />
 iOS 9.0+<br />
 Xcode 7.3+<br />
 pod install<br />
@@ -24,21 +24,22 @@ pod install<br />
 
 
 
-# TileGame #
+# TileGame #<br />
 This is like a super mario.
 
-##Feature##
+##Feature##<br />
 - It includes many basics for creating a 2d game, including physicsBody, and so on.
 - Use Tile to build game map
 - Now player can't attack enemy
 
-## Libraries ##
+## Libraries ##<br />
 Sprite Kit<br />
 JSTileMap<br />
 Joystick<br />
 FBSDK<br />
 Firebase
-##Requirement##
+
+##Requirement##<br />
 iOS 9.0+<br />
 Xcode 7.3+<br />
 pod install<br />
